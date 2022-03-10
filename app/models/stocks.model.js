@@ -12,7 +12,7 @@ StocksModel.fetchAll = (result) => {
             result(err,null);
             return;
         }
-        console.log("Stocks Data",res);
+        // console.log("Stocks Data",res);
         result(null,res);
     })
 }
