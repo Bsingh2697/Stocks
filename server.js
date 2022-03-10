@@ -13,7 +13,7 @@ app.use(express.json());
 
 app.use(express.urlencoded({extended:true}));
 
-const PORT = process.env.DATABASE_PORT || 3000;
+const PORT = process.env.PORT || 3000;
 
 require("./app/routes/stocks.routes.js")(app)
 
