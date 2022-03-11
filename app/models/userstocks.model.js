@@ -14,3 +14,5 @@ UserModel.fetchUserStocks = (result) => {
         result(null,res);
     })
 }
+
+module.exports = UserModel;
