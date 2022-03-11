@@ -15,7 +15,9 @@ app.use(express.urlencoded({extended:true}));
 
 const PORT = process.env.PORT || 3000;
 
-require("./app/routes/stocks.routes.js")(app)
+require("./app/routes/stocks.routes.js")(app);
+
+require("./app/routes/userstocks.routes.js")(app);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
