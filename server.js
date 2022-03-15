@@ -19,6 +19,8 @@ require("./app/routes/stocks.routes.js")(app);
 
 require("./app/routes/userstocks.routes.js")(app);
 
+require("./app/routes/externalservice.routes.js")(app);
+
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });

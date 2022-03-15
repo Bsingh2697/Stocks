@@ -1,0 +1,20 @@
+{
+  "folders": [
+	{
+		"path": "../.."
+	},
+	{
+		"path": "../../../../../Node/Group_Ai3_Node_ChatAPI"
+	},
+	{
+		"path": "../../../../../ReactNative/election_monitoring_system_app"
+	},
+	{
+		"path": "../../../../../ReactNative/leaders_app"
+	},
+	{
+		"path": "../../../../../ReactNative/learnIOS/CloudProject"
+	}
+],
+  "settings": {}
+}

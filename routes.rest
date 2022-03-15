@@ -1,3 +1,5 @@
 GET http://localhost:3000/stocks
 ###
 GET http://stocksapplication-env.eba-xgdzv9mg.us-east-1.elasticbeanstalk.com/stocks/all
+###
+GET http://localhost:3000/exserv/tweets/Modi
