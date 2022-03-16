@@ -18,7 +18,12 @@ UserModel.fetchUserStocks = (result) => {
 // GET ALL STOCKS FOR PARTICULAR USER
 UserModel.fetchMyStocks = (uid, result) => {
     console.log("UID : ",uid);
-    sql.query("SELECT * from `userstocks` where `USER`= ?",uid,(err,res)=> {
+    sql.query(`SELECT *
+FROM userstocks
+INNER JOIN stocks_data
+ON userstocks.STOCK = stocks_data.CID
+INNER JOIN userdata
+ON userstocks.USER = userdata.UID where userstocks.USER = ?`,uid,(err,res)=> {
         if(err){
             console.log('error: ',err);
             result(err, null);
