@@ -7,6 +7,7 @@ const stockController = require('../controller/stock_controller.js');
 // Fetch all stocks
 router.get('/all',stockController.fetchAll)
 router.get('/search/:stock',stockController.searchStock)
+router.put('/update/:stock',stockController.setLatestPrice)
 
 app.use('/stocks',router);
 }
