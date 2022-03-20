@@ -9,9 +9,9 @@ const app = express();
 // };
 // app.use(cors(corsOptions));
 
-app.use(express.json());
+app.use(express.json()); // Parses to JSON
 
-app.use(express.urlencoded({extended:true}));
+app.use(express.urlencoded({extended:true})); // Parses/converts non-ASCII characters into a format which can be transmitted
 
 const PORT = process.env.PORT || 3000;
 

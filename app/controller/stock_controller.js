@@ -4,6 +4,7 @@ const StockModel = require('../models/stocks.model.js');
 exports.fetchAll = (req,res) => {
     StockModel.fetchAll((err,data)=> {
         if(err)
+        // res.type('text/xml').send() => For xml format
         res.status(200).send({
             message : err.message || "Some error occurred while fetching stocks"
         });
