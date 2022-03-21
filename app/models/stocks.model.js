@@ -18,17 +18,45 @@ StocksModel.fetchAll = (result) => {
     })
 }
 
+// get list of all stocks
+StocksModel.fetchInfo = (stock,result) => {
+      axios.get(`https://financialmodelingprep.com/api/v3/profile/${stock}?apikey=72636bc36954e77da53da15fb01c2a9e`)
+        .then((resp)=>{
+            console.log("RESPONSE : ",resp);
+            result(null,resp)
+        }).catch((err)=>{
+        result(err,null)
+    })
+}
+
 // search stock
-StocksModel.searchStock = (stock,result) => {
-    console.log("Search query in dB  :",stock);
-    let searchValue = `${stock}%`
-    sql.query('SELECT * from stocks_data where CompanyStockSymbol LIKE ?',searchValue,(err,res)=> {
+StocksModel.searchStock = (filter,value,result) => {
+    console.log("Search param in dB  :",filter);
+    console.log("Search query in dB  :",value);
+    // let searchValue = `${stock}%` // Percentage
+    let searchValue = `${value}`
+    let queryString;
+    let finalString;
+    if(filter == 'CompanyStockSymbol' || filter == 'CompanyName'){
+        queryString = 'SELECT * from stocks_data where '+ filter 
+        finalString = queryString+ " like '" + value+"%'"
+    }else if(filter == 'SharePriceGreater'){
+        queryString = 'SELECT * from stocks_data where SharePrice'
+        finalString = queryString+ ' > '+value
+    }else if(filter == 'SharePriceLesser'){
+        queryString = 'SELECT * from stocks_data where SharePrice'
+        finalString = queryString+ ' < '+value
+    }
+
+    console.log("QUERY : ",queryString);
+    sql.query(finalString,filter,(err,res)=> { 
         if(err){
             console.log("error : ",err);
             result(err,null);
             return;
         }
         result(null,res);
+        console.log("Query Resp",res);
     })
 }
 

@@ -35,7 +35,7 @@ ExServModel.fetchTweets = (value,result) => {
             // console.log("RESPONSE : ",resp.data);
             result(null,resp.data)
     }).catch((err)=>{
-        console.log("ERROR BHAI",err);
+        console.log("ERROR",err);
         result(err,null)
     })
 }
