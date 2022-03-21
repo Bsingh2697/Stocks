@@ -10,10 +10,10 @@
 		"path": "../../../../../ReactNative/leaders_app"
 	},
 	{
-		"path": "../../../../../ReactNative/learnIOS/ISYS40061 Service-Oriented Cloud Computing Client"
+		"path": "../.."
 	},
 	{
-		"path": "../.."
+		"path": "../../../../../ReactNative/learnIOS/ISYS40061_Client"
 	}
 ],
   "settings": {}

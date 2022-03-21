@@ -38,13 +38,17 @@ exports.buySellStock = (req,res)=>{
     !req.body.qnt ? 
     res.status(200).send({message: "Quantity (qnt) is required"}) : 
     !req.body.signal ?
-    res.status(200).send({message: "Buy/Sell Signal (signal) is required"}) : {}
+    res.status(200).send({message: "Buy/Sell Signal (signal) is required"}) :
+    !req.body.price ?
+    res.status(200).send({message: "Price is required"})
+    : {}
 
     const usermodel = {
         uid : req.params.uid,
         sid : req.body.sid,
         qnt : req.body.qnt,
         signal : req.body.signal,
+        price : req.body.price
     };
     UserModel.buySellStocks(req.params.uid,usermodel,(err,data)=>{
         if(err)
@@ -55,3 +59,15 @@ exports.buySellStock = (req,res)=>{
             res.status(200).send(data)
     })
 }
+
+exports.fetchUserDetails = (req,res) => {
+    UserModel.fetchUserDetails(req.params.uid,(err,data)=>{
+        if(err)
+        res.status(200).send({
+            message : err.message || "Some error occurred while fetching user stocks"
+        });
+        else
+            res.status(200).send(data)
+    })
+}
+
