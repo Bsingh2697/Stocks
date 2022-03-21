@@ -18,7 +18,7 @@ module.exports = app => {
 
  // Fetch User Details
  router.get('/:uid',userController.fetchUserDetails)
- router.get('/login/:uid',userController.loginUser) 
+ router.post('/login',userController.loginUser) 
  router.get('/logout/:uid',userController.logoutUser)
 
  app.use('/user',router);

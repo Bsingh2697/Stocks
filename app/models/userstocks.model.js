@@ -130,9 +130,9 @@ UserModel.fetchUserDetails = (uid, result) => {
 
 
 // Login User
-UserModel.loginUser = (uid, result) => {
-    console.log("UID : ",uid);
-    sql.query(`Update userdata set Status = 1 where UID = ?;`,uid,(err,res)=> {
+UserModel.loginUser = (uname, password, result) => {
+    // console.log("UID : ",uid);
+    sql.query(`Update userdata set Status = 1 where UNAME=? AND Password=?;`,[uname,password],(err,res)=> {
         if(err){
             console.log('error: ',err);
             result(err, null);
