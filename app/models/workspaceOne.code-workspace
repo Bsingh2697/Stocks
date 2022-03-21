@@ -1,9 +1,6 @@
 {
   "folders": [
 	{
-		"path": "../.."
-	},
-	{
 		"path": "../../../../../Node/Group_Ai3_Node_ChatAPI"
 	},
 	{
@@ -13,7 +10,10 @@
 		"path": "../../../../../ReactNative/leaders_app"
 	},
 	{
-		"path": "../../../../../ReactNative/learnIOS/CloudProject"
+		"path": "../../../../../ReactNative/learnIOS/ISYS40061 Service-Oriented Cloud Computing Client"
+	},
+	{
+		"path": "../.."
 	}
 ],
   "settings": {}
