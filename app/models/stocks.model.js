@@ -18,12 +18,12 @@ StocksModel.fetchAll = (result) => {
     })
 }
 
-// get list of all stocks
+// get Info of stock
 StocksModel.fetchInfo = (stock,result) => {
       axios.get(`https://financialmodelingprep.com/api/v3/profile/${stock}?apikey=72636bc36954e77da53da15fb01c2a9e`)
         .then((resp)=>{
-            console.log("RESPONSE : ",resp);
-            result(null,resp)
+            console.log("RESPONSE : ",resp.data);
+            result(null,resp.data)
         }).catch((err)=>{
         result(err,null)
     })
