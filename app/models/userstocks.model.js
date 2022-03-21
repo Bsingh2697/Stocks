@@ -39,6 +39,7 @@ UserModel.buySellStocks = (id,data,result) => {
 
     // sid : Stock Id
     // qnt : Quantity
+    // price : Price
     // signal : Buy/sell Signal (0 for buy and 1 for sell)
 
     console.log("ID : ",id);
@@ -118,6 +119,33 @@ UserModel.buySellStocks = (id,data,result) => {
 UserModel.fetchUserDetails = (uid, result) => {
     console.log("UID : ",uid);
     sql.query(`SELECT * FROM userdata where UID=?`,uid,(err,res)=> {
+        if(err){
+            console.log('error: ',err);
+            result(err, null);
+            return;
+        }
+        result(null,res)
+    })
+}
+
+
+// Login User
+UserModel.loginUser = (uid, result) => {
+    console.log("UID : ",uid);
+    sql.query(`Update userdata set Status = 1 where UID = ?;`,uid,(err,res)=> {
+        if(err){
+            console.log('error: ',err);
+            result(err, null);
+            return;
+        }
+        result(null,res)
+    })
+}
+
+// Logout User
+UserModel.logoutUser = (uid, result) => {
+    console.log("UID : ",uid);
+    sql.query(`Update userdata set Status = 0 where UID = ?;`,uid,(err,res)=> {
         if(err){
             console.log('error: ',err);
             result(err, null);

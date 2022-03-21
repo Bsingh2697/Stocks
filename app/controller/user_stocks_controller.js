@@ -71,3 +71,25 @@ exports.fetchUserDetails = (req,res) => {
     })
 }
 
+exports.loginUser = (req,res) => {
+    UserModel.loginUser(req.params.uid,(err,data)=>{
+        if(err)
+        res.status(200).send({
+            message : err.message || "Some error occurred while fetching user stocks"
+        });
+        else
+            res.status(200).send(data)
+    })
+}
+
+exports.logoutUser = (req,res) => {
+    UserModel.logoutUser(req.params.uid,(err,data)=>{
+        if(err)
+        res.status(200).send({
+            message : err.message || "Some error occurred while fetching user stocks"
+        });
+        else
+            res.status(200).send(data)
+    })
+}
+
