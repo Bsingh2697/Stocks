@@ -131,14 +131,22 @@ UserModel.fetchUserDetails = (uid, result) => {
 
 // Login User
 UserModel.loginUser = (uname, password, result) => {
-    // console.log("UID : ",uid);
+    
     sql.query(`Update userdata set Status = 1 where UNAME=? AND Password=?;`,[uname,password],(err,res)=> {
         if(err){
             console.log('error: ',err);
             result(err, null);
             return;
         }
-        result(null,res)
+        sql.query(`Select * from userdata where UNAME=? AND Password=?;`,[uname,password],(err,res)=> {
+            if(err){
+                console.log('error: ',err);
+                result(err, null);
+                return;
+            }
+            console.log("UNAME : ",uname);
+            result(null,res)
+        })
     })
 }
 
